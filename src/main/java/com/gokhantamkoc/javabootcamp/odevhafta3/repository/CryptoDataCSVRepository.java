@@ -7,7 +7,7 @@ import java.util.List;
 import com.gokhantamkoc.javabootcamp.odevhafta3.model.Candle;
 
 public class CryptoDataCSVRepository implements CSVRepository {
-	
+
 	private final String COMMA_DELIMITER = ",";
 
 	@Override
@@ -17,19 +17,18 @@ public class CryptoDataCSVRepository implements CSVRepository {
 		// Bu alandan itibaren kodunuzu yazabilirsiniz
 
 		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-		/**String line = "";
-		while ((line = bufferedReader.readLine()) != null){
-			line.split(",");
-			Candle singleCandle = new Candle();
-		}*/
-
-		String line = bufferedReader.readLine();
-		while (line != null) {
-			String[] attributes = line.split(",");
+		String line;
+		while ((line = bufferedReader.readLine()) != null) {
+			String[] values = line.split(COMMA_DELIMITER);
+			Candle candle = new Candle(Long.parseLong(values[0]),
+					Double.parseDouble(values[1]),
+					Double.parseDouble(values[2]),
+					Double.parseDouble(values[3]),
+					Double.parseDouble(values[4]),
+					Double.parseDouble(values[5]));
+			candles.add(candle);
 		}
-		Candle candle = new Candle();
-
-
+		bufferedReader.close();
 
 		// Bu alandan sonra kalan kod'a dokunmayiniz.
 		return candles;
