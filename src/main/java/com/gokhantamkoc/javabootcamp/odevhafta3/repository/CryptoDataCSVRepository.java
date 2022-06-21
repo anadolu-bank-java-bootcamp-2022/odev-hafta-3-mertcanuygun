@@ -1,8 +1,6 @@
 package com.gokhantamkoc.javabootcamp.odevhafta3.repository;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +15,22 @@ public class CryptoDataCSVRepository implements CSVRepository {
 		List<Candle> candles = new ArrayList<Candle>();
 		InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(filename);
 		// Bu alandan itibaren kodunuzu yazabilirsiniz
-		
+
+		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+		/**String line = "";
+		while ((line = bufferedReader.readLine()) != null){
+			line.split(",");
+			Candle singleCandle = new Candle();
+		}*/
+
+		String line = bufferedReader.readLine();
+		while (line != null) {
+			String[] attributes = line.split(",");
+		}
+		Candle candle = new Candle();
+
+
+
 		// Bu alandan sonra kalan kod'a dokunmayiniz.
 		return candles;
 	}
