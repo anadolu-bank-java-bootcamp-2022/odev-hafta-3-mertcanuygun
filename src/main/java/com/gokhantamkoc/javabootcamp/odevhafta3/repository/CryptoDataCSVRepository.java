@@ -17,15 +17,17 @@ public class CryptoDataCSVRepository implements CSVRepository {
 		// Bu alandan itibaren kodunuzu yazabilirsiniz
 
 		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+
 		String line;
 		while ((line = bufferedReader.readLine()) != null) {
 			String[] values = line.split(COMMA_DELIMITER);
+
 			Candle candle = new Candle(Long.parseLong(values[0]),
-					Double.parseDouble(values[1]),
-					Double.parseDouble(values[2]),
 					Double.parseDouble(values[3]),
 					Double.parseDouble(values[4]),
-					Double.parseDouble(values[5]));
+					Double.parseDouble(values[5]),
+					Double.parseDouble(values[6]),
+					Double.parseDouble(values[7]));
 			candles.add(candle);
 		}
 		bufferedReader.close();
