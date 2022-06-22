@@ -17,10 +17,9 @@ public class ChartService {
 	
 	public CandleStickChart createChartFromCryptoData() {
 		// Bu metodu doldurmanizi bekliyoruz.
-		CandleStickChart candleStickChart = new CandleStickChart("BTC-USDT " +
-				"Chart");
+		CandleStickChart candleStickChart = new CandleStickChart("BTC-USDT Chart");
 		try {
-			List<Candle> candles = cryptoDataCSVRepository.readCSV("Binance_BTCUSDT_d.csv");
+			List<Candle> candles = this.cryptoDataCSVRepository.readCSV("Binance_BTCUSDT_d.csv");
 			for (Candle candle : candles) {
 				candleStickChart.addCandle(candle.getTime(),
 						candle.getOpen(), candle.getHigh(), candle.getLow(), candle.getClose(), candle.getVolume());
