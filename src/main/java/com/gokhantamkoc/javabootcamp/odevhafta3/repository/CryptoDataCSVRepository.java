@@ -22,8 +22,8 @@ public class CryptoDataCSVRepository implements CSVRepository {
 
 		String line;
 		int iteration = 0;
-		while ((line = bufferedReader.readLine()) != null) {
-			String[] values = line.split(COMMA_DELIMITER);
+		while ((line = bufferedReader.readLine()) != null) { //her bir satırı okuyan while döngüsü.
+			String[] values = line.split(COMMA_DELIMITER); //her bir satırın değerlerini ayrıştıran dizi.
 			if (iteration == 0) { //ilk satır header olduğu için atlamak gerekir. Bu yüzden burada kontrol yapıyoruz.
 				iteration++;
 				continue;
